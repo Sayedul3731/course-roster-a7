@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h1>Course Registration</h1>
+      <h1 className='text-5xl font-semibold text-center'>Course Registration</h1>
     </>
   )
 }
