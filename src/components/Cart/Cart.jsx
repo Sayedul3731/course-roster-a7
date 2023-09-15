@@ -1,12 +1,11 @@
 import { PropTypes } from "prop-types";
 
-const Cart = ({ selectedTechnology, totalCredit }) => {
+const Cart = ({ selectedTechnology, totalCredit, remainingCredit }) => {
     return (
         <div className=" shadow-lg p-3 rounded-xl">
-            <h3 className="font-semibold my-3 text-blue-600">Credit Hour Remaining  hr</h3>
+            <h3 className="font-semibold my-3 text-blue-600">Credit Hour Remaining {remainingCredit} hr</h3>
             <hr />
             <h1 className="text-2xl font-bold my-3">Course Name</h1>
-
             {
                 selectedTechnology.map(technology => <li key={technology.id}>{technology.course_name}</li>
                 )
@@ -14,13 +13,13 @@ const Cart = ({ selectedTechnology, totalCredit }) => {
             <hr className="mt-4" />
             <h3 className="font-semibold my-4">Total Credit Hour : {totalCredit}</h3>
             <hr />
-
-
         </div>
     );
 };
 
 Cart.propTypes = {
-    selectedTechnology: PropTypes.array
+    selectedTechnology: PropTypes.array,
+    totalCredit: PropTypes.number,
+    remainingCredit: PropTypes.number
 }
 export default Cart;
