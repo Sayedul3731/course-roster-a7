@@ -6,8 +6,6 @@ import Carts from './components/Carts/Carts'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 function App() {
   const [technologies, setTechnologies] = useState([])
   const [selectedTechnology, setSelectedTechnology] = useState([])
@@ -19,18 +17,18 @@ function App() {
     if (isExist) {
       return alert('Already Exist')
     } else {
-      const newSelectedTechnology = [...selectedTechnology, technology];
-      setSelectedTechnology(newSelectedTechnology)
       const newTotalCredit = totalCredit + credit;
       if (newTotalCredit > 20) {
-        toast('Sorry! it is been over 20 hours so would not add anymore.')
+        return toast('Sorry! it is been over 20 hours so would not add anymore.')
       } else {
+        const newSelectedTechnology = [...selectedTechnology, technology];
+        setSelectedTechnology(newSelectedTechnology)
         setTotalCredit(newTotalCredit)
         const newRemaining = 20 - newTotalCredit;
-        if( newRemaining < 0 ) {
-          toast('Sorry! It is less then 0')
+        if (newRemaining < 0) {
+          return toast('Sorry! It is less then 0')
         }
-        else{
+        else {
           setRemainingCredit(newRemaining)
         }
       }
