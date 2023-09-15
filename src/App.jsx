@@ -3,6 +3,8 @@ import './App.css'
 import Cards from './components/Cards/Cards'
 import { useEffect } from 'react'
 import Carts from './components/Carts/Carts'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,11 +21,23 @@ function App() {
     } else {
       const newSelectedTechnology = [...selectedTechnology, technology];
       setSelectedTechnology(newSelectedTechnology)
+
       const newTotalCredit = totalCredit + credit;
-      setTotalCredit(newTotalCredit)
-      const newRemaining = 20 - newTotalCredit;
-      setRemainingCredit(newRemaining)
-    
+      if (newTotalCredit > 20) {
+        toast('Sorry! it is been over 20 hours so would not add anymore.')
+      } else {
+        setTotalCredit(newTotalCredit)
+        const newRemaining = 20 - newTotalCredit;
+        if( newRemaining < 0 ) {
+          toast('Sorry! It is less then 0')
+        }
+        else{
+          setRemainingCredit(newRemaining)
+        }
+      }
+
+
+
     }
   }
 
@@ -35,6 +49,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <h1 className='text-3xl font-bold text-center mt-12 mb-8'>Course Registration</h1>
       <div className='flex flex-col md:flex-row lg:flex-row w-11/12 mx-auto gap-5'>
         <Cards handleSelectedCourse={handleSelectedCourse} technologies={technologies}></Cards>
