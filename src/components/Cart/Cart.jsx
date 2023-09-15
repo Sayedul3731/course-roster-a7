@@ -6,10 +6,11 @@ const Cart = ({ selectedTechnology, totalCredit, remainingCredit }) => {
             <h3 className="font-semibold my-3 text-blue-600">Credit Hour Remaining {remainingCredit} hr</h3>
             <hr />
             <h1 className="text-2xl font-bold my-3">Course Name</h1>
+
             {
-                selectedTechnology.map(technology => <li key={technology.id}>{technology.course_name}</li>
-                )
+                selectedTechnology.map(technology => <li key={technology.id}>{technology.course_name}</li>)
             }
+
             <hr className="mt-4" />
             <h3 className="font-semibold my-4">Total Credit Hour : {totalCredit}</h3>
             <hr />
