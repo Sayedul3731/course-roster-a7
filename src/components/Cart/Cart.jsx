@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 
-const Cart = ({ selectedTechnology }) => {
+const Cart = ({ selectedTechnology, totalCredit }) => {
     return (
         <div className=" shadow-lg p-3 rounded-xl">
             <h3 className="font-semibold my-3 text-blue-600">Credit Hour Remaining  hr</h3>
@@ -12,7 +12,7 @@ const Cart = ({ selectedTechnology }) => {
                 )
             }
             <hr className="mt-4" />
-            <h3 className="font-medium my-4">Total Credit Hour :</h3>
+            <h3 className="font-semibold my-4">Total Credit Hour : {totalCredit}</h3>
             <hr />
 
 

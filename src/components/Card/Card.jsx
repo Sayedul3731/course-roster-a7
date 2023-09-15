@@ -11,7 +11,7 @@ const Card = ({ technology, handleSelectedCourse}) => {
                 <p>$ Price : {price}</p>
                 <p> Credit : {credit}hr</p>
             </div>
-            <button onClick={() => handleSelectedCourse(technology,id)} className="bg-blue-600  w-full mx-auto py-1 font-semibold text-white rounded-lg mt-2">Select</button>
+            <button onClick={() => handleSelectedCourse(technology,id, credit)} className="bg-blue-600  w-full mx-auto py-1 font-semibold text-white rounded-lg mt-2">Select</button>
         </div>
     );
 };
